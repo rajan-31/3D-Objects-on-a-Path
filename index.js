@@ -28,10 +28,10 @@ transform.setViewMatrix(
     [0, 1, 0]  // Up direction
 );
 transform.setProjectionMatrix(
-    Math.PI / 3, // Field of view (60 degrees)
+    Math.PI / 3,                                            // FOV
     renderer.domElement.width / renderer.domElement.height, // Aspect ratio
-    0.1, // Near clipping plane
-    100.0 // Far clipping plane
+    0.1,                                                    // Near clipping plane
+    100.0                                                   // Far clipping plane
 );
 
 
@@ -44,14 +44,7 @@ const scene = new Scene();
 // For rotation animation
 let angle = 0;
 
-function animation() {
-    // Update world matrix for rotation
-    mat4.identity(transform.worldMatrix);
-    mat4.rotateY(transform.worldMatrix, transform.worldMatrix, angle);
-    angle += 0.01;
-    
-    transform.setWorldMatrix(transform.worldMatrix);
-    
+function animation() {   
     renderer.clear(200, 200, 200, 100);
     renderer.render(scene, shader);
 }

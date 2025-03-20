@@ -8,6 +8,8 @@ import {Shader} from "./lib/shader.js";
 import {Scene} from "./lib/scene.js";
 import {Transform} from "./lib/transform.js";
 
+import {ThreeDApp} from "./lib/three-d-app.js";
+
 // =====================================
 //                  SETUP
 // =====================================
@@ -43,6 +45,10 @@ scene.loadModel("./assets/models/Sphere_Sculpted.obj", [0, 200, 110, 100]);
 scene.loadModel("./assets/models/Axis_X.obj", [255, 0, 0, 100]);
 scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100]);
 scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100]);
+
+
+const threeDApp = new ThreeDApp(transform);
+threeDApp.addEventListeners();
 
 // =====================================
 //          Animation Loop

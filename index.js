@@ -1,4 +1,5 @@
 import {vec2, mat3, mat4} from "./vendor/gl-matrix/index.js";
+import "./vendor/webgl-obj-loader.min.js"
 
 import {vertexShaderSrc} from "./shaders/vertex.js";
 import {fragmentShaderSrc} from "./shaders/fragment.js";
@@ -35,7 +36,13 @@ transform.setProjectionMatrix(
 );
 
 
-const scene = new Scene();
+const scene = new Scene(OBJ);
+scene.loadModel("./assets/models/Cube-Cylinder.obj", [125, 50, 50, 100]);
+scene.loadModel("./assets/models/Sphere_Sculpted.obj", [0, 200, 110, 100]);
+// scene.loadModel("./assets/models/Axes.obj", [0, 0, 0, 100]);
+scene.loadModel("./assets/models/Axis_X.obj", [255, 0, 0, 100]);
+scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100]);
+scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100]);
 
 // =====================================
 //          Animation Loop

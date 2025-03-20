@@ -24,9 +24,9 @@ renderer.setSize(500, 500, shader);
 const transform = new Transform(shader, renderer);
 transform.setWorldMatrix(mat4.identity(transform.worldMatrix));
 transform.setViewMatrix(
-    [0, 0, 2], // Camera position
-    [0, 0, 0], // Point to look at
-    [0, 1, 0]  // Up direction
+    [2, 2, 2],   // Camera position
+    [0, 0, 0],    // Point to look at (center of scene)
+    [0, 1, 0]    // Up direction (Y-axis becomes "up" in camera space)
 );
 transform.setProjectionMatrix(
     Math.PI / 3,                                            // FOV

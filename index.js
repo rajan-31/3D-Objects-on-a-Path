@@ -54,9 +54,6 @@ threeDApp.addEventListeners();
 //          Animation Loop
 // =====================================
 
-// For rotation animation
-let angle = 0;
-
 function animation() {   
     renderer.clear(200, 200, 200, 100);
     renderer.render(scene, shader);

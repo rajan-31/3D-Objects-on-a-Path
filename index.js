@@ -5,6 +5,7 @@ import {fragmentShaderSrc} from "./shaders/fragment.js";
 import {WebGLRenderer} from "./lib/renderer.js";
 import {Shader} from "./lib/shader.js";
 import {Scene} from "./lib/scene.js";
+import {Transform} from "./lib/transform.js";
 
 // =====================================
 //                  SETUP
@@ -18,35 +19,23 @@ shader.use();
 
 renderer.setSize(500, 500, shader);
 
-// Create transformation matrices
-const worldMatrix = mat4.create();
-const viewMatrix = mat4.create();
-const projectionMatrix = mat4.create();
 
-// Initialize world matrix (model matrix)
-mat4.identity(worldMatrix);
-
-// Initialize view matrix (camera)
-mat4.lookAt(viewMatrix, 
-    [0, 0, 2],    // Camera position
-    [0, 0, 0],    // Point to look at
-    [0, 1, 0]     // Up direction
+const transform = new Transform(shader, renderer);
+transform.setWorldMatrix(mat4.identity(transform.worldMatrix));
+transform.setViewMatrix(
+    [0, 0, 2], // Camera position
+    [0, 0, 0], // Point to look at
+    [0, 1, 0]  // Up direction
 );
-
-// Initialize projection matrix (perspective)
-mat4.perspective(projectionMatrix,
-    Math.PI / 4,  // Field of view (45 degrees)
+transform.setProjectionMatrix(
+    Math.PI / 3, // Field of view (60 degrees)
     renderer.domElement.width / renderer.domElement.height, // Aspect ratio
-    0.1,          // Near clipping plane
-    100.0         // Far clipping plane
+    0.1, // Near clipping plane
+    100.0 // Far clipping plane
 );
 
-// Pass matrices to shader
-shader.setUniformMatrix4fv("mWorld", worldMatrix);
-shader.setUniformMatrix4fv("mView", viewMatrix);
-shader.setUniformMatrix4fv("mProjection", projectionMatrix);
 
-const scene = new Scene(shader);
+const scene = new Scene();
 
 // =====================================
 //          Animation Loop
@@ -57,12 +46,11 @@ let angle = 0;
 
 function animation() {
     // Update world matrix for rotation
-    mat4.identity(worldMatrix);
-    mat4.rotateY(worldMatrix, worldMatrix, angle);
+    mat4.identity(transform.worldMatrix);
+    mat4.rotateY(transform.worldMatrix, transform.worldMatrix, angle);
     angle += 0.01;
     
-    // Update shader uniforms
-    shader.setUniformMatrix4fv("mWorld", worldMatrix);
+    transform.setWorldMatrix(transform.worldMatrix);
     
     renderer.clear(200, 200, 200, 100);
     renderer.render(scene, shader);

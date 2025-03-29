@@ -20,7 +20,7 @@ document.body.prepend(renderer.domElement);
 const shader = new Shader(renderer.glContext(), vertexShaderSrc, fragmentShaderSrc);
 shader.use();
 
-renderer.setSize(500, 500, shader);
+renderer.setSize(500, 500);
 
 
 const transform = new Transform(shader, renderer);

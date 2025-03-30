@@ -47,7 +47,7 @@ await scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100], 1, true);
 await scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100], 1, true);
 
 
-const threeDApp = new ThreeDApp(transform);
+const threeDApp = new ThreeDApp(renderer, shader, transform, scene);
 threeDApp.addEventListeners();
 
 // =====================================

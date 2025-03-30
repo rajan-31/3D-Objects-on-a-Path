@@ -41,10 +41,10 @@ transform.setProjectionMatrix(
 const scene = new Scene(OBJ);
 await scene.loadModel("./assets/models/Cube-Cylinder.obj", [10, 150, 200, 100]);
 // await scene.loadModel("./assets/models/Sphere_Sculpted.obj", [150, 0, 110, 100]);
-// await scene.loadModel("./assets/models/Axes.obj", [0, 0, 0, 100]);
-await scene.loadModel("./assets/models/Axis_X.obj", [255, 0, 0, 100]);
-await scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100]);
-await scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100]);
+// await scene.loadModel("./assets/models/Axes.obj", [0, 0, 0, 100], 1, true);
+await scene.loadModel("./assets/models/Axis_X.obj", [255, 0, 0, 100], 1, true);
+await scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100], 1, true);
+await scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100], 1, true);
 
 
 const threeDApp = new ThreeDApp(transform);

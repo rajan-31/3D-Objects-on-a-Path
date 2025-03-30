@@ -20,7 +20,7 @@ document.body.prepend(renderer.domElement);
 const shader = new Shader(renderer.glContext(), vertexShaderSrc, fragmentShaderSrc);
 shader.use();
 
-renderer.setSize(500, 500, shader);
+renderer.setSize(500, 500);
 
 
 const transform = new Transform(shader, renderer);
@@ -39,15 +39,15 @@ transform.setProjectionMatrix(
 
 
 const scene = new Scene(OBJ);
-scene.loadModel("./assets/models/Cube-Cylinder.obj", [125, 50, 50, 100]);
-scene.loadModel("./assets/models/Sphere_Sculpted.obj", [0, 200, 110, 100]);
-// scene.loadModel("./assets/models/Axes.obj", [0, 0, 0, 100]);
-scene.loadModel("./assets/models/Axis_X.obj", [255, 0, 0, 100]);
-scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100]);
-scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100]);
+await scene.loadModel("./assets/models/Cube-Cylinder.obj", [10, 150, 200, 100]);
+// await scene.loadModel("./assets/models/Sphere_Sculpted.obj", [150, 0, 110, 100]);
+// await scene.loadModel("./assets/models/Axes.obj", [0, 0, 0, 100], 1, true);
+await scene.loadModel("./assets/models/Axis_X.obj", [255, 0, 0, 100], 1, true);
+await scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100], 1, true);
+await scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100], 1, true);
 
 
-const threeDApp = new ThreeDApp(transform);
+const threeDApp = new ThreeDApp(renderer, shader, transform, scene);
 threeDApp.addEventListeners();
 
 // =====================================

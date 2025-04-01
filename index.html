@@ -6,17 +6,62 @@
     <title>3D Objects on a Path</title>
     <link rel="stylesheet" href="./assets/stylesheets/style.css">
     <link rel="icon" href="./assets/icons/favicon.png">
+    <style>
+        .controls-section {
+            margin: 15px auto;
+            max-width: 800px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+        }
+        .control-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .input-label {
+            margin: 0 5px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <div style="display: flex; justify-content: center;">
-        <button id="btn-mode-camera-3d-view">3D View [V]</button>
-        <button id="btn-mode-camera-top-view">Top View [v]</button>
+    <div class="controls-section">
+        <div class="control-group">
+            <button id="btn-mode-camera-3d-view">3D View [V]</button>
+            <button id="btn-mode-camera-top-view">Top View [v]</button>
+        </div>
+        <div class="control-group">
+            <input id="slider-rotate-camera" 
+                type="range" min="0" max="360" value="0"
+                style="width: 300px;"
+            >
+        </div>
+        <div class="control-group">
+            <span class="input-label">X:</span>
+            <input id="input-translate-x" type="number" min="-10" max="10" value="0" style="width: 60px;">
+            <span class="input-label">Y:</span>
+            <input id="input-translate-y" type="number" min="-10" max="10" value="0" style="width: 60px;">
+            <span class="input-label">Z:</span>
+            <input id="input-translate-z" type="number" min="-10" max="10" value="0" style="width: 60px;">
+            <button id="btn-translate" style="margin-left: 10px;">[t] Translate</button>
+        </div>
     </div>
-    <div style="display: flex; justify-content: center; margin-top: 20px;">
-        <input id="slider-rotate-camera" 
-            type="range" min="0" max="360" value="0"
-            style="width: 300px;"
-        >
+    
+    <div class="controls-section">
+        <h3 style="text-align: center; margin-top: 0;">Path Movement Controls</h3>
+        <div style="padding: 0 20px;">
+            <p><strong>Step 1:</strong> Select an object in Top View [v] mode</p>
+            <p><strong>Step 2:</strong> Press [p] to start path definition</p>
+            <p><strong>Step 3:</strong> Click on the canvas to define two more points (p1 and p2)</p>
+            <p><strong>During movement:</strong></p>
+            <ul>
+                <li>Press [↑] to increase speed</li>
+                <li>Press [↓] to decrease speed</li>
+                <li>Press [Esc] to cancel path definition</li>
+            </ul>
+        </div>
     </div>
 
     <script type="module" src="./index.js"></script>

@@ -8,7 +8,7 @@ import {Shader} from "./lib/shader.js";
 import {Scene} from "./lib/scene.js";
 import {Transform} from "./lib/transform.js";
 
-import {ThreeDApp} from "./lib/three-d-app.js";
+import {App} from "./lib/app.js";
 
 // =====================================
 //                  SETUP
@@ -47,8 +47,8 @@ await scene.loadModel("./assets/models/Axis_Y.obj", [0, 0, 255, 100], 1, true);
 await scene.loadModel("./assets/models/Axis_Z.obj", [0, 255, 0, 100], 1, true);
 
 
-const threeDApp = new ThreeDApp(renderer, shader, transform, scene);
-threeDApp.addEventListeners();
+const app = new App(renderer, shader, transform, scene);
+app.addEventListeners();
 
 // =====================================
 //          Animation Loop

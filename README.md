@@ -75,3 +75,8 @@ p(t1) = p1 for some 0 < t1 < 1
 We can assume that p0, p1, p2 are not collinear and not too close to each other.
 
 up and down arrows can increase/decrease the speed of the object
+
+---
+
+- I have used external library to import 3d models (webgl-obj-loader, https://github.com/frenchtoast747/webgl-obj-loader)
+- Does object rotations need to be around x axis of object or world

@@ -1,7 +1,7 @@
 # Blender 4.3.2
 # www.blender.org
 mtllib Cube-Cylinder.mtl
-o Cube
+o Cube_-_Cylinder
 v -0.500000 -0.500000 0.500000
 v 0.000000 0.400000 -0.500000
 v -0.500000 0.000000 -0.400000

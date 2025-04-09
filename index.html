@@ -6,29 +6,10 @@
     <title>3D Objects on a Path</title>
     <link rel="stylesheet" href="./assets/stylesheets/style.css">
     <link rel="icon" href="./assets/icons/favicon.png">
-    <style>
-        .controls-section {
-            margin: 15px auto;
-            max-width: 800px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #f8f8f8;
-        }
-        .control-group {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .input-label {
-            margin: 0 5px;
-            font-size: 14px;
-        }
-    </style>
 </head>
 <body>
     <div class="controls-section">
-        <div class="control-group">
+        <div class="control-group" style="display: flex; gap: 20px;">
             <button id="btn-mode-camera-3d-view">3D View [V]</button>
             <button id="btn-mode-camera-top-view">Top View [v]</button>
         </div>
@@ -40,13 +21,26 @@
         </div>
         <div class="control-group">
             <span class="input-label">X:</span>
-            <input id="input-translate-x" type="number" min="-10" max="10" value="0" style="width: 60px;">
+            <input id="input-translate-x" type="number" min="-10" max="10" value="0" step="0.01" style="width: 60px;">
             <span class="input-label">Y:</span>
-            <input id="input-translate-y" type="number" min="-10" max="10" value="0" style="width: 60px;">
+            <input id="input-translate-y" type="number" min="-10" max="10" value="0" step="0.01" style="width: 60px;">
             <span class="input-label">Z:</span>
-            <input id="input-translate-z" type="number" min="-10" max="10" value="0" style="width: 60px;">
+            <input id="input-translate-z" type="number" min="-10" max="10" value="0" step="0.01" style="width: 60px;">
             <button id="btn-translate" style="margin-left: 10px;">[t] Translate</button>
         </div>
+    </div>
+
+    <div class="controls-section">
+        <h3 style="text-align: center; margin-top: 0;">Keyboard Actions</h3>
+        <ul>
+            <li><strong>v/V</strong>: Top/3D View</li>
+            <li><strong>x/X</strong>: Rotate Around X-axis (anti-clockwise / clockwise)</li>
+            <li><strong>y/Y</strong>: Rotate Around Y-axis (anti-clockwise / clockwise)</li>
+            <li><strong>z/Z</strong>: Rotate Around Z-axis (anti-clockwise / clockwise)</li>
+            <li><strong>t</strong>: Translate</li>
+            <li><strong>←</strong>: Scale Down</li>
+            <li>→: Scale Up</li>
+        </ul>
     </div>
     
     <div class="controls-section">
